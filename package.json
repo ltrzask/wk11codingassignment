@@ -1,0 +1,23 @@
+{
+  "name": "wk11codingassignment",
+  "version": "1.0.0",
+  "description": "Made a TicTacToe game with JavaScript, HTML and CSS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ltrzask/wk11codingassignment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ltrzask/wk11codingassignment/issues"
+  },
+  "homepage": "https://github.com/ltrzask/wk11codingassignment#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "jquery": "^3.6.0"
+  }
+}

@@ -1,0 +1,116 @@
+
+/*select all to set the box size*/
+.main, .main::after, .main::before {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/*used CSS variables to make the cell sizes all the same and make 
+the X's and O's slightly smaller to fit in the cells*/
+:root {
+    --cell-size: 200px;
+    --mark-size: calc(var(--cell-size) * .9); /*want the mark to be 90% of the cell size*/
+}
+
+.board {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center; /*need to make sure the marks will be centered inside the cells
+     and the cells won't be moved */
+    align-items: center;
+    grid-template-columns: repeat(3, auto); /*This will make our board a 3x3 grid*/
+}
+
+.cell {
+    width: var(--cell-size); /*can use CSS variables for the cell size*/
+    height: var(--cell-size);
+    border: 1px solid black; /*adds the border to the grid*/
+    display: flex;
+    justify-content: center;
+    align-items: center; /*display and center items inside the cells*/
+    position: relative; /*helps position our marks perfectly in the center*/
+    cursor: pointer; /*will put a pointer over an open cell*/
+}
+
+/*want to change the curser when it is hovered over a full cell*/
+.cell.x,
+.cell.circle {
+    cursor: not-allowed;
+}
+
+/*putting this so the color for X and O stays black when selected then grey when hovering*/
+.cell.x::before, 
+.cell.x::after,
+.cell.circle::before {
+    background-color: black;
+}
+
+
+/*Create a hover mark in gray*/
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+    background-color: lightgray;
+}
+
+
+
+/*Create our X's and O's that go inside the cells*/
+
+.cell.x::before, 
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after {
+    content: '';
+    position: absolute; /*this makes the before and after the exact same base so they look like an X*/
+    width: calc(var(--mark-size) * .15); /*making it 15% of our X*/
+    height: var(--mark-size); 
+}
+
+.cell.x::before,
+.board.x .cell:not(.x):not(.circle):hover::before {
+    transform: rotate(45deg); /*making our X by rotating it*/
+}
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after {
+    transform: rotate(-45deg); /*making our X by rotating it*/
+}
+
+.cell.circle::before, 
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+    content: '';
+    position: absolute; /**/
+    border-radius: 50%; /*makes a circle shape*/
+}
+
+.cell.circle::before,
+.board.circle .cell:not(.x):not(.circle):hover::before {
+    width: var(--mark-size); /*make sure both width and height the same to get a perfect circle*/
+    height: var(--mark-size); 
+    /*the bigger circle will be seen*/
+}
+
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+    width: calc(var(--mark-size)* .7); /*make sure both width and height the same to get a perfect circle*/
+    height: calc(var(--mark-size)* .7); 
+    background-color: white; /*this small circle is what makes our O's look like O's*/
+}
+/*had to use CSS to get the font bigger*/
+#win-message-text {
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+/*had to use CSS to get the font bigger*/
+#winningMessage {
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+}

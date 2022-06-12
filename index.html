@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Tic-Tac-Toe</title>
+</head>
+<body>
+  <nav class="navbar bg-dark">
+    <div class="container-fluid">
+      <span class="navbar-brand text-light mx-auto mb-0 h1 fs-1">Lets Play Tic-Tac-Toe!</span>
+    </div>
+  </nav>
+
+  <div class="row mt-5">
+    <div class="col mx-auto">
+    <div class="turn" id="whosTurn"></div>
+    <div class="winning-messaage" id="winningMessage"></div>
+      <div id="win-message-text"></div>
+  </div>
+</div>
+
+  <div class="main"> <!--container hold everything-->
+
+    <!--Create a board for our game, all elements for tic-tac-toe will be here-->
+        <!--using a class for CSS and an ID for JS-->
+          <div class="board" id="board">
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+          </div>
+          
+          <!--Restart button to reset the board-->
+          <div class="restart-button d-flex justify-content-center">
+              <button type="button" class="btn btn-dark btn-lg" id="restart">Restart</button>
+          </div>
+  </div>
+
+</body>
+    <script src="script.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
